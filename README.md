@@ -272,9 +272,9 @@ pip install opencv-python numpy Pillow matplotlib
 
 ## 联系方式
 
-- 项目主页: https://github.com/your-username/ColorEdit
-- 问题反馈: https://github.com/your-username/ColorEdit/issues
-- 邮箱: your-email@example.com
+- 项目主页: https://github.com/AlexanderTsui/ColorEdit
+- 问题反馈: https://github.com/AlexanderTsui/ColorEdit/issues
+- 邮箱: 1483237499@qq.com
 
 ## 致谢
 
