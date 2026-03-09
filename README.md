@@ -1,5 +1,33 @@
 # ColorEdit - 可视化颜色阈值编辑器
 
+## UI Refresh (v1.1.0)
+
+This project now uses a redesigned **pink-tone Qt UI** while keeping the original HSV-mask workflow unchanged.
+
+### New UI highlights
+- Pink visual theme with rounded cards, slider accents, and soft gradient background.
+- Dynamic sakura (cherry blossom) animation overlay designed for low CPU usage.
+- Layout can be changed in two ways:
+  - Preset layout switch: **Three Columns** / **Top-Bottom**.
+  - Drag-resize layout with splitter handles.
+- All original core functions are preserved:
+  - HSV min/max threshold dragging (H/S/V)
+  - Real-time mask preview for camera and image input
+  - Histogram/statistics view
+  - Config save/load/export
+
+### Run (Windows PowerShell)
+```powershell
+.\myenv\Scripts\Activate.ps1
+python run_coloredit.py
+```
+
+If `Activate.ps1` is blocked by execution policy, use:
+```powershell
+.\myenv\Scripts\python.exe run_coloredit.py
+```
+
+
 ## 项目简介
 
 ColorEdit 是一个基于 Python 的可视化颜色阈值编辑器，类似于 OpenMV IDE 的颜色阈值功能。用户可以通过拖动 HSV 三通道的高低阈值滑块，实时预览摄像头或指定图片中的掩码图像。该工具特别适用于计算机视觉项目中的颜色检测和分割任务的参数调试。
@@ -113,10 +141,12 @@ pip install opencv-python numpy Pillow matplotlib
 
 ### 界面布局
 
-应用界面分为三个主要区域：
-- **左侧**: 图像预览区域（显示原图片/摄像头画面）
-- **中间**: HSV阈值控制面板（滑块调节）
-- **右侧**: 掩码预览区域（显示处理结果和直方图）
+新版界面采用"顶部操作条 + 中部三栏主体 + 底部状态栏"的结构：
+- **顶部操作条**: 集中放置打开图片、摄像头启停、配置保存/加载等高频操作
+- **中部左栏 (Image Feed)**: 显示原图或摄像头画面，支持缩放与拖拽查看
+- **中部中栏 (HSV Controls)**: H/S/V 三通道阈值卡片化控制，包含预设与快捷操作按钮
+- **中部右栏 (Mask Analysis)**: 掩码结果与 HSV 直方图标签页，底部显示像素统计与导出操作
+- **底部状态栏**: 显示运行状态、处理进度、FPS、内存与时间信息
 
 ### 基本操作
 
