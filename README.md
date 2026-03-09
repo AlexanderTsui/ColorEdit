@@ -1,5 +1,33 @@
 # ColorEdit - 可视化颜色阈值编辑器
 
+## UI Refresh (v1.1.0)
+
+This project now uses a redesigned **pink-tone Qt UI** while keeping the original HSV-mask workflow unchanged.
+
+### New UI highlights
+- Pink visual theme with rounded cards, slider accents, and soft gradient background.
+- Dynamic sakura (cherry blossom) animation overlay designed for low CPU usage.
+- Layout can be changed in two ways:
+  - Preset layout switch: **Three Columns** / **Top-Bottom**.
+  - Drag-resize layout with splitter handles.
+- All original core functions are preserved:
+  - HSV min/max threshold dragging (H/S/V)
+  - Real-time mask preview for camera and image input
+  - Histogram/statistics view
+  - Config save/load/export
+
+### Run (Windows PowerShell)
+```powershell
+.\myenv\Scripts\Activate.ps1
+python run_coloredit.py
+```
+
+If `Activate.ps1` is blocked by execution policy, use:
+```powershell
+.\myenv\Scripts\python.exe run_coloredit.py
+```
+
+
 ## 项目简介
 
 ColorEdit 是一个基于 Python 的可视化颜色阈值编辑器，类似于 OpenMV IDE 的颜色阈值功能。用户可以通过拖动 HSV 三通道的高低阈值滑块，实时预览摄像头或指定图片中的掩码图像。该工具特别适用于计算机视觉项目中的颜色检测和分割任务的参数调试。

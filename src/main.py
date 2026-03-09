@@ -1,40 +1,35 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-ColorEdit - 可视化颜色阈值编辑器
-主程序入口文件
-"""
+"""ColorEdit application entrypoint."""
 
-import tkinter as tk
-from tkinter import ttk
-import sys
 import os
+import sys
 
-# 添加项目根目录到路径
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from src.gui.main_window import ColorEditMainWindow
 from src.utils.logger import setup_logger
 
-def main():
-    """主函数"""
-    # 设置日志
+
+def main() -> None:
+    """Start the Qt application."""
     logger = setup_logger()
-    logger.info("启动 ColorEdit 应用程序")
-    
+    logger.info("Starting ColorEdit")
+
     try:
-        # 创建主窗口
-        root = tk.Tk()
-        app = ColorEditMainWindow(root)
-        
-        # 启动应用
-        root.mainloop()
-        
-    except Exception as e:
-        logger.error(f"应用程序启动失败: {e}")
+        from PySide6.QtWidgets import QApplication
+    except ImportError:
+        logger.error("PySide6 is not installed. Run: pip install -r requirements.txt")
         sys.exit(1)
-    
-    logger.info("ColorEdit 应用程序已退出")
+
+    from src.gui_qt.main_window import ColorEditMainWindow
+
+    app = QApplication(sys.argv)
+    window = ColorEditMainWindow()
+    window.show()
+    exit_code = app.exec()
+    logger.info("ColorEdit exited")
+    sys.exit(exit_code)
+
 
 if __name__ == "__main__":
-    main() 
+    main()

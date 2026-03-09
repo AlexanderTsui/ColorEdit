@@ -1,13 +1,10 @@
 {
-  "layout_mode": "stacked",
+  "layout_mode": "triple",
   "splitter_sizes": {
     "main": [
-      433,
-      288
-    ],
-    "top": [
-      459,
-      796
+      304,
+      418,
+      528
     ]
   }
 }
